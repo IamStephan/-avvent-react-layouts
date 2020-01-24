@@ -2,6 +2,26 @@ import React, { Component } from 'react';
 import t from 'prop-types';
 import styled from 'styled-components';
 
+/**
+ * SMART PROPS
+ * ==================================================
+ * Flexbox:
+ *  col-*
+ *  push-*
+ * 
+ * Grids:
+ *  area-*
+ *  columns-*
+ *  row-*
+ * 
+ * Utility:
+ *  hidden-*
+ *  show-*
+ */
+
+/**
+ * Default styles for a gridbox parent
+ */
 const flexDefaults = {
   order: 1,
   flex: '1',
@@ -10,6 +30,9 @@ const flexDefaults = {
   push: 0
 }
 
+/**
+ * Default styles for a gridbox parent
+ */
 const gridDefaults = {
   area: null,
   column: null,
@@ -19,6 +42,10 @@ const gridDefaults = {
 const BoxContainer = styled.div`
   box-sizing: border-box;
 
+  ${/**
+   * DEBUG MODE
+   * ===========
+   */ ''}
   ${props => {
     if(props.debug) {
       return `
@@ -27,6 +54,17 @@ const BoxContainer = styled.div`
     }
   }}
 
+  ${/**
+   * ======================================================================================================
+   *                                        FLEXBOX
+   * ======================================================================================================
+   */ ''}
+
+   ${/**
+    * Basic styles to help with layout (flex)
+    * 
+    * Note: Flex is ignored when the parent uses a flexbox grid system
+    */ ''}
   ${props => {
     if(props.display === 'flex' || props.display === 'inline-flex') {
       return `
@@ -37,6 +75,15 @@ const BoxContainer = styled.div`
     }
   }}
 
+  ${/**
+   * FLEX BOX GRIDS
+   * ==================
+   * If the parent component uses a grid based system then this helps with the layout.
+   * 
+   * MEDIA QUIRY
+   * ============
+   * Smart props can be used: col-* and push-*
+   */ ''}
   ${props => {
     if(props.useGrid) {
       const media = Object.keys(props.breakPoints).map((breakPoint => {
@@ -59,6 +106,15 @@ const BoxContainer = styled.div`
     }
   }}
 
+  ${/**
+   * ======================================================================================================
+   *                                        GRIDS
+   * ======================================================================================================
+   */ ''}
+
+${/**
+    * Basic styles to help with layout (grid)
+    */ ''}
   ${props => {
     if(props.display === 'grid' || props.display === 'inline-grid') {
       return `
@@ -69,6 +125,9 @@ const BoxContainer = styled.div`
     }
   }}
 
+  ${/**
+   * Smart props for breakpoints
+   */ ''}
   ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['area-' + breakPoint]) {
@@ -89,6 +148,9 @@ const BoxContainer = styled.div`
     `
   }}
 
+  ${/**
+   * Smart props for breakpoints
+   */ ''}
   ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['column-' + breakPoint]) {
@@ -109,6 +171,9 @@ const BoxContainer = styled.div`
     `
   }}
 
+  ${/**
+   * Smart props for breakpoints
+   */ ''}
   ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['row-' + breakPoint]) {
@@ -129,6 +194,15 @@ const BoxContainer = styled.div`
     `
   }}
 
+  ${/**
+   * ======================================================================================================
+   *                                        UTILITIES
+   * ======================================================================================================
+   */ ''}
+
+   ${/**
+    * Smart props to hide the component on certain breakpoints
+    */ ''}
   ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['hidden-' + breakPoint]) {
@@ -149,7 +223,10 @@ const BoxContainer = styled.div`
     `
   }}
 
-${props => {
+  ${/**
+    * Smart props to show the component on certain breakpoints
+    */ ''}
+  ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['show-' + breakPoint]) {
         let show
@@ -171,25 +248,79 @@ ${props => {
   }}
 `
 
+/**
+ * Smart box component that behaves according to its parent container
+ */
 export default class Box extends Component {
   static propTypes = {
+    /**
+     * Used to determine its behaviour
+     */
     display: t.oneOf(['flex', 'inline-flex', 'grid', 'inline-grid']),
 
     //Flexbox Specific
+    /**
+     * Most of the layout is handled by this component for flexbox
+     */
+
+    /**
+     * The order the components appear in
+     */
     order: t.number,
+
+    /**
+     * How the component should flex (syntax: grow sink basis)
+     */
     flex: t.string,
+
+    /**
+     * How the box should be aligned if there is space available
+     */
     flexAlign: t.oneOf(['auto', 'flex-start', 'flex-end', 'center', 'baseline', 'stretch']),
+
+    /**
+     * How many columns the component should occupy
+     */
     col: t.number,
+
+    /**
+     * How far the component is pushed from the left in terms of column space
+     */
     push: t.number,
 
     // Grid Specific
+
+    /**
+     * How many columns the component should occupy(syntax: ['', ''])
+     * 
+     * Note: Can contain span keyword in both, one or none
+     *       If only one value is used them it should be a string
+     */
     column: t.arrayOf(t.oneOfType([t.string, t.number])),
+
+    /**
+     * How many rows the component should occupy(syntax: ['', ''])
+     * 
+     * Note: Can contain span keyword in both, one or none
+     *       If only one value is used them it should be a string
+     */
     row: t.arrayOf(t.oneOfType([t.string, t.number])),
+
+    /**
+     * The area the component should be placed in on the grid
+     */
     area: t.string,
   }
 
   static defaultProps = {
+    /**
+     * Default styles if the parent is a flexbox
+     */
     ...flexDefaults,
+
+    /**
+     * Default styles if the parent is a gridbox
+     */
     ...gridDefaults
   }
 
