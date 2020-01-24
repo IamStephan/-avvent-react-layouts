@@ -41,6 +41,7 @@ const gridDefaults = {
 
 const BoxContainer = styled.div`
   box-sizing: border-box;
+  position: relative;
 
   ${/**
    * DEBUG MODE
