@@ -2,7 +2,7 @@
   "name": "@avvent/react-layouts",
   "version": "1.0.0",
   "description": "A react component library that eases layout creation using css grids and flexbox",
-  "author": "IamStephan",
+  "author": "i_am_stephan",
   "license": "MIT",
   "repository": "IamStephan/@avvent/react-layouts",
   "main": "dist/index.js",

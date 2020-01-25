@@ -4,9 +4,9 @@
  */
 export default {
   breakPoints: {
-    phone: 576,
+    phone: 425,
     tablet: 768,
-    laptop: 992,
-    desktop: 1200
+    laptop: 1024,
+    desktop: 1440
   },
 }

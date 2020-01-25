@@ -54,7 +54,7 @@ const GridContainer = styled.div`
   }}
 
   ${/**
-   * MEDIA QUIRY
+   * MEDIA QUERY
    * =============
    * Columns can use the columns-* prop to have a different number of columns depending on the breakpoint
    */''}
@@ -103,7 +103,7 @@ const GridContainer = styled.div`
   }}
 
   ${/**
-   * MEDIA QUIRY
+   * MEDIA QUERY
    * ============
    * Rows can use the rows-* prop to have a different number of columns depending on the breakpoint
    */''}
@@ -157,7 +157,7 @@ const GridContainer = styled.div`
   }}
 
   ${/**
-   * MEDIA QUIRY
+   * MEDIA QUERY
    * =============
    * Ares can use the areas-* prop to have a different definition of areas depending on the breakpoint
    */''}
@@ -228,7 +228,7 @@ export default class Grid extends Component {
     columns: t.oneOfType([t.string, t.array]),
 
     /**
-     * Auto column widths if the grid flow is in row mode, (Just a convinience prop)
+     * Auto column width if the grid flow is in row mode, (Just a convinience prop)
      */
     'auto-columns': t.string,
 
@@ -240,7 +240,7 @@ export default class Grid extends Component {
     rows: t.oneOfType([t.string, t.array]),
 
     /**
-     * Auto row heights, (Just a convinience prop)
+     * Auto row height, (Just a convinience prop)
      */
     'auto-rows': t.string,
 

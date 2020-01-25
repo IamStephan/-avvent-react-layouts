@@ -21,7 +21,6 @@ export const flexDefault = {
     ...utils.breakPoints
   },
   display: 'flex',
-  columns: 12,
   flow: 'row',
   wrap: 'nowrap',
   justify: 'flex-start',

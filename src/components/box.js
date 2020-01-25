@@ -11,7 +11,7 @@ import styled from 'styled-components';
  * 
  * Grids:
  *  area-*
- *  columns-*
+ *  column-*
  *  row-*
  * 
  * Utility:
