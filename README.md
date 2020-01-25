@@ -99,8 +99,8 @@ This component uses CSS Grids for its layouts
 | gap          |         `null`          |                       `number`                       |     -      | The gap between the box components inside the grid                                                                                      |
 | justify      |       `'stretch'`       |     `'start' OR 'end' OR 'center' OR 'stretch'`      |     -      | How the content inside a grid cell should be aligned on its main axis                                                                   |
 | align        |       `'stretch'`       |     `'start' OR 'end' OR 'center' OR 'stretch'`      |     -      | How the content inside a grid cell should be aligned on its cross axis                                                                  |
-| flow         |         `'row'`         | `'row' OR 'column' OR 'row dense' OR 'column dense'` |            | The direction the grid flows in                                                                                                         |
-| children     |                         |                        `Box`                         |            | All the children of this component has to be a box component                                                                            |
+| flow         |         `'row'`         | `'row' OR 'column' OR 'row dense' OR 'column dense'` |     -      | The direction the grid flows in                                                                                                         |
+| children     |                         |                        `Box`                         |     -      | All the children of this component has to be a box component                                                                            |
 
 ## Box Component
 
@@ -111,9 +111,9 @@ The box component is used to place all the items inside the layouts to place it 
 
 | Prop      | Default value |                                  Value Type                                   | Smart prop | Description                                                                                                          |
 | :-------- | :-----------: | :---------------------------------------------------------------------------: | :--------: | :------------------------------------------------------------------------------------------------------------------- |
-| order     |    `null`     |                                   `number`                                    |            | The order the component should appear in                                                                             |
-| flex      |   `'1 1 1'`   |                                   `string`                                    |            | How the component should flex (syntax: grow sink basis). This props is ignored when the parent has `useGrid` enabled |
-| flexAlign |   `'auto'`    | `'auto' OR 'flex-start' OR 'flex-end' OR 'center' OR 'baseline' OR 'stretch'` |            | How the box should be aligned if there is space available                                                            |
+| order     |    `null`     |                                   `number`                                    |     -      | The order the component should appear in                                                                             |
+| flex      |   `'1 1 1'`   |                                   `string`                                    |     -      | How the component should flex (syntax: grow sink basis). This props is ignored when the parent has `useGrid` enabled |
+| flexAlign |   `'auto'`    | `'auto' OR 'flex-start' OR 'flex-end' OR 'center' OR 'baseline' OR 'stretch'` |     -      | How the box should be aligned if there is space available                                                            |
 | col       |      `1`      |                                   `number`                                    |   col-*    | How many columns the component should occupy                                                                         |
 | push      |      `0`      |                                   `number`                                    |   push-*   | How far the component is pushed from the left in terms of column space                                               |
 
