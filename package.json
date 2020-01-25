@@ -58,6 +58,6 @@
     "styled-components": "^5.0.0"
   },
   "files": [
-    "dist"
+    "dist/"
   ]
 }

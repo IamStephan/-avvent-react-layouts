@@ -5,7 +5,7 @@
 node_modules
 
 # Examples
-example
+example/
 
 # builds
 build
