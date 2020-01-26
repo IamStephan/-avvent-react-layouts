@@ -143,7 +143,8 @@ The box component is used to place all the items inside the layouts to place it 
 - [ ] Performance optimizations ?
 - [ ] Add unit Tests
 - [ ] Add gutter prop to Flex component
-- [ ] turn hidden-* to hidden-from-* & hidden-to-*
+- [ ] Turn hidden-* to hidden-from-* & hidden-to-*
+- [ ] Add helper functions
 
 
 ## License
