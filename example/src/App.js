@@ -15,15 +15,12 @@ export default class App extends Component {
         }}
         debug
         columns={'repeat(3, 1fr)'}
-        columns-small={'1fr 1fr'}
 
-        rows={['1fr', '1fr', '1fr']}
-        rows-small={'1fr 1fr 1fr 1fr'}
+        rows={['1fr']}
 
         gap={10}
         areas={[
-          'poop poop poop',
-          'face face face'
+          'poop poop poop'
         ]}
 
         areas-small={[

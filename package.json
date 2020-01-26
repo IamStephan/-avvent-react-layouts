@@ -1,6 +1,6 @@
 {
   "name": "@avvent/react-layouts",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "A react component library that eases layout creation using css grids and flexbox",
   "author": "i_am_stephan",
   "license": "MIT",

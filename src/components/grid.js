@@ -164,12 +164,18 @@ const GridContainer = styled.div`
   ${props => {
     const media = Object.keys(props.breakPoints).map((breakPoint => {     
       if(props['areas-' + breakPoint]) {
-        const areas = props['areas-' + breakPoint].reduce((prev, current, i) => {
-          if(i === 1) {
-            return `"${prev}" "${current}"`
-          }
-          return `${prev} "${current}"`
-        })
+        let areas
+        if(props['areas-' + breakPoint].length === 1) {
+          areas = `"${props['areas-' + breakPoint][0]}"`
+        } else {
+          areas = props['areas-' + breakPoint].reduce((prev, current, i) => {
+            if(i === 1) {
+              return `"${prev}" "${current}"`
+            }
+            return `${prev} "${current}"`
+          })
+        }
+        
 
         return `
           @media (max-width: ${props.breakPoints[breakPoint]}px) {
