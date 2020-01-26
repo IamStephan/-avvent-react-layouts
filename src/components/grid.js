@@ -143,12 +143,18 @@ const GridContainer = styled.div`
    */''}
   ${props => {
     if(props.areas) {
-      const areas = props.areas.reduce((prev, current, i) => {
-        if(i === 1) {
-          return `"${prev}" "${current}"`
-        }
-        return `${prev} "${current}"`
-      })
+      let areas
+      if(props.areas.length === 1) {
+        areas = `"${props.areas}"`
+      } else {
+        areas = props.areas.reduce((prev, current, i) => {
+          if(i === 1) {
+            return `"${prev}" "${current}"`
+          }
+          return `${prev} "${current}"`
+        })
+      }
+      
 
       return `
         grid-template-areas: ${areas};
